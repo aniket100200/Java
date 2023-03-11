@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class Main {
+    public static void CircleAreaPerimeter(int r) {
+        //Write your code here
+		final int pi=(int) 3.14;
+		int area=pi*r*r;
+		int peri=2*pi*r;
+		System.out.print(area+"\n"+peri);
+		
+    }
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int r=sc.nextInt();
+        CircleAreaPerimeter(r);
+    }
+}
