@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 class Solution{
+	static int mod=1000000007;
 	public long minSubarraySum(int n, int a[])
 	{
 		//we'll use... Monotonic Stacks..
@@ -24,13 +25,13 @@ class Solution{
 
 				//principle of counting...
 				//let's find the no. of subarrays...
-				int numOfSubArrays=(rb-index)*(index-lb);
+				int numOfSubArrays=((rb-index)%mod)*((index-lb)%mod);
 
 				//in all these subarrays.. the min will be the a[index];
 
-				long sumOfMin=numOfSubArrays*a[index];
+				long sumOfMin=(numOfSubArrays%mod)*(a[index]%mod);
 
-				totalSum+=sumOfMin;
+				totalSum=((totalSum%mod)+(sumOfMin%mod))%mod;
 			}
 
 			//he will look for next smaller element to right...
@@ -54,15 +55,15 @@ class Solution{
 
 				//principle of counting...
 				//let's find the no. of subarrays...
-				int numOfSubArrays=(rb-index)*(index-lb);
+				int numOfSubArrays=(((rb-index)%mod)*((index-lb)%mod))%mod;
 
 				//in all these subarrays.. the min will be the a[index];
 
-				long sumOfMin=numOfSubArrays*a[index];
+				long sumOfMin=((numOfSubArrays%mod)*(a[index]%mod))%mod;
 
-				totalSum+=sumOfMin;
+				totalSum=((totalSum%mod)+(sumOfMin%mod))%mod;
 		}
-		return totalSum;
+		return totalSum%mod;
 		
 	}
 }
