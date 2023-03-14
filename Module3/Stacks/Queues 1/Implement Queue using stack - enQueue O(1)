@@ -1,0 +1,68 @@
+import java.io.*;
+import java.util.*;
+
+class StackQueue
+{
+    //Function to push an element in queue by using 2 stacks.
+	Stack<Integer> main;
+	Stack<Integer> temp;
+	public StackQueue()
+	{
+		this.main=new Stack<Integer>();
+		this.temp=new Stack<Integer>();
+	}
+    void Push(int x)
+    {
+		//push operation means enqueue in Queues...
+		main.push(x);
+		//It has O(1) tc..
+	  
+    }
+    //Function to pop an element from queue by using 2 stacks.
+    int Pop()
+    {
+	  //int this only I'll have to use ... temp stack.. to remove data..
+		//this will take O(N) time complexity...
+		if(main.isEmpty())
+		{
+			return -1;
+		}
+		//I'll have to remove first pushed element..
+		//but in stack it'll be present in bottom of the stack.. 
+		//first I'll remove all the element's from the main stack except last one... into temp stack..
+		while(main.size()>1)
+		{
+			temp.push(main.pop());
+		}
+		
+		int popped=main.pop();
+		while(temp.size()>0)
+		{
+			main.push(temp.pop());
+		}
+		return popped;
+    }
+}
+public class Main {
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);  
+        StackQueue s = new StackQueue();	
+        int q = sc.nextInt();
+        ArrayList<Integer> ans= new ArrayList<>();
+        while(q>0)
+        {
+            int QueryType = sc.nextInt();
+            if(QueryType == 1)
+            {
+                int a = sc.nextInt();
+                s.Push(a);
+            }
+            else if(QueryType == 2)
+            ans.add(s.Pop());
+        q--;
+        }	
+        for(int x:ans)
+        System.out.print(x+" ");       
+     System.out.println();
+    }
+}
