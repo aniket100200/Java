@@ -24,14 +24,14 @@ class Solution
 	public int solve(int a, char o, int b)
 	{
 		//let's first convert to prefix..
-		String s1=prefix.pop();
+		{String s1=prefix.pop();
 		String s2=prefix.pop();
-		prefix.push(o+s2+s1);
+		prefix.push(o+s2+s1);}
 
 		//let's convert to postfix..
-		String y=postfix.pop();
-		String x=postfix.pop();
-		postfix.push(x+y+o);
+	{	String s2=postfix.pop();
+		String s1=postfix.pop();
+		postfix.push(s1+s2+o);}
 
 		switch(o)
 		{
