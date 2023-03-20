@@ -19,7 +19,7 @@ class Solution {
 		HashMap<Character,Integer> m1=new HashMap<>();
 		int inc=-1;
 		int exc=-1;
-		String ans=s;//this hole string will be my potential answer...
+		String ans="";//this hole string will be my potential answer...
 		while(inc<s.length() && exc<s.length())
 		{
 			//let's chek.. the keySet of the m2.. in m1..
@@ -49,7 +49,7 @@ class Solution {
 				//You'll have to drecrease the frequencey...
 				//before excluding.. you'll have to set you're potential answer..
 				String pans=s.substring(exc+1,inc+1);
-				if(pans.length()<ans.length())
+				if( ans.length()==0 || pans.length()<ans.length())
 				{
 					ans=pans;
 				}				
