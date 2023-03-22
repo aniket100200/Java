@@ -13,6 +13,10 @@ class Solution{
 		int d1=0;//c1-c0
 		int d2=0;//c2-c1
 		int max=0;
+		{ 
+			String key=d1+"#"+d2;
+			map.put(key,-1);
+		}
 		for(int i=0;i<n;i++)
 		{
 			if(arr[i]==0)
