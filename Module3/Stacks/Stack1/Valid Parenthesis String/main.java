@@ -4,63 +4,43 @@ class Solution{
     public static boolean checkValidString(int n, String s)
 	{
         //write code here
+		/*** this solution has O(N) Tc and O(N) Sc****/
+		//1)Ways....
 		Stack<Integer> st=new Stack<>();
-		Stack<Integer> st2=new Stack<>();
+		Stack<Integer> star=new Stack<>();
 		for(int i=0;i<n;i++)
 		{
-			
 			char ch=s.charAt(i);
-			// if(i==n-1 && ch=='(' )
-			// {
-			// 	return false;
-			// }
 			if(ch=='(')
 			{
 				st.push(i);
 			}
 			else if(ch=='*')
 			{
-				st2.push(i);
+				star.push(i);
 			}
 			else
 			{
-				if(st.size()>0)
+				if(st.size()==0 && star.size()==0)return false;
+				else if(st.size()>0)
 				{
 					st.pop();
 				}
-				else if(st2.size()>0)
-				{
-					st2.pop();
-				}
 				else
 				{
-					return false;
+					star.pop();
 				}
-			}			
-		}
-		
-		if(st.size() > st2.size())
-		{
-			return false;
-		}
-		else 
-		{
-			while(st.size()>0)
-			{
-				if(st.peek()>st2.peek())
-				{
-					return false;
-				}
-				else
-				{
-					st.pop();
-					st2.pop();
-				}
-				
 			}
 		}
-		
+		//stack has element's ....
+	if(st.size()>star.size())return false;
+
+		while(st.size()>0)
+		{
+			if(st.pop()>star.pop())return false;
+		}
 		return true;
+		
     }
 }
 
