@@ -1,3 +1,10 @@
+
+/***** this is 
+*O(N) Time Complexity...
+*O(n) space complexity
+*but you have to meake two calls here...
+* can you do better.....
+*/
 import java.util.*;
 import java.lang.*;
 import java.io.*;
