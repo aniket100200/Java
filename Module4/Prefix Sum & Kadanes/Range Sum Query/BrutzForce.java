@@ -1,3 +1,4 @@
+//* in this method you'll take linear time to find the sum got it...
 import java.util.*;
 
 class Solution {
