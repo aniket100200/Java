@@ -1,3 +1,6 @@
+//this is N* for traverasal on array...
+//In worst case I'll have to traverl in boolean array n no. of times..
+//Tc will be O(n2)...<<<<>>>>>
 import java.io.*;
 import java.lang.*;
 import java.util.*;
